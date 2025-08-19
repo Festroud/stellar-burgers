@@ -1,25 +1,7 @@
-import { userSlice, loginUser, registerUser, getUser, logoutUser } from './user-slice';
+import { userSlice, loginUser, registerUser, getUser, logoutUser, initialState } from './user-slice';
 import { TUser } from '@utils-types';
 
 describe('user slice', () => {
-  const initialState = {
-    isAuthChecked: false,
-    isAuthenticated: false,
-    getUserRequest: false,
-    getUserError: undefined,
-    loginUserError: undefined,
-    loginUserRequest: false,
-    registerUserError: undefined,
-    registerUserRequest: false,
-    logoutUserError: undefined,
-    logoutUserRequest: false,
-    updateUserError: undefined,
-    updateUserRequest: false,
-    data: undefined,
-    orders: [],
-    ordersUserError: undefined,
-    ordersUserRequest: false
-  };
 
   const mockUser: TUser = {
     email: 'test@test.com',

@@ -1,14 +1,7 @@
-import { ordersSlice, fetchFeed } from './orders-slice';
+import { ordersSlice, fetchFeed, initialState } from './orders-slice';
 import { TOrder } from '@utils-types';
 
 describe('orders slice', () => {
-  const initialState = {
-    orders: [],
-    total: 0,
-    totalToday: 0,
-    loading: false,
-    error: undefined
-  };
 
   const mockOrders: TOrder[] = [
     {

@@ -1,15 +1,7 @@
-import { constructorSlice, addBun, addIngredient, removeIngredient, moveIngredient, clearOrder } from './constructor-slice';
+import { constructorSlice, addBun, addIngredient, removeIngredient, moveIngredient, clearOrder, initialState } from './constructor-slice';
 import { TConstructorIngredient } from '@utils-types';
 
 describe('constructor slice', () => {
-  const initialState = {
-    constructorItems: {
-      bun: null,
-      ingredients: []
-    },
-    orderRequest: false,
-    orderModalData: null
-  };
 
   const mockBun: TConstructorIngredient = {
     _id: '1',

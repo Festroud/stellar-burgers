@@ -49,7 +49,7 @@ export const orderBurger = createAsyncThunk(
   }
 );
 
-const initialState: ConstructorState = {
+export const initialState: ConstructorState = {
   constructorItems: {
     bun: null,
     ingredients: []

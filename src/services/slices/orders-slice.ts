@@ -15,7 +15,7 @@ type TOrdersState = {
   error: string | undefined;
 } & TOrdersData;
 
-const initialState: TOrdersState = {
+export const initialState: TOrdersState = {
   orders: [],
   total: 0,
   totalToday: 0,
