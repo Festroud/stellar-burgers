@@ -89,6 +89,11 @@
     "start": "webpack serve --mode=development",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier ./src --write"
