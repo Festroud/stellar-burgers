@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import clsx from 'clsx';
 
 import { Button, Input } from '@zlden/react-developer-burger-ui-components';
 import styles from './profile.module.css';
@@ -10,17 +11,20 @@ import { ProfileMenu } from '@components';
 export const ProfileUI: FC<ProfileUIProps> = ({
   formValue,
   isFormChanged,
-  updateUserError,
+  focusedField,
   handleSubmit,
   handleCancel,
-  handleInputChange
+  handleInputChange,
+  handleInputFocus,
+  handleInputBlur,
+  updateUserError
 }) => (
-  <main className={`${commonStyles.container}`}>
-    <div className={`mt-30 mr-15 ${styles.menu}`}>
+  <main className={commonStyles.container}>
+    <div className={clsx('mt-30', 'mr-15', styles.menu)}>
       <ProfileMenu />
     </div>
     <form
-      className={`mt-30 ${styles.form} ${commonStyles.form}`}
+      className={clsx('mt-30', styles.form, commonStyles.form)}
       onSubmit={handleSubmit}
     >
       <>
@@ -29,12 +33,14 @@ export const ProfileUI: FC<ProfileUIProps> = ({
             type={'text'}
             placeholder={'Имя'}
             onChange={handleInputChange}
+            onFocus={() => handleInputFocus('name')}
+            onBlur={handleInputBlur}
             value={formValue.name}
             name={'name'}
             error={false}
             errorText={''}
             size={'default'}
-            icon={'EditIcon'}
+            icon={focusedField === 'name' ? 'CloseIcon' : 'EditIcon'}
           />
         </div>
         <div className='pb-6'>
@@ -42,12 +48,14 @@ export const ProfileUI: FC<ProfileUIProps> = ({
             type={'email'}
             placeholder={'E-mail'}
             onChange={handleInputChange}
+            onFocus={() => handleInputFocus('email')}
+            onBlur={handleInputBlur}
             value={formValue.email}
             name={'email'}
             error={false}
             errorText={''}
             size={'default'}
-            icon={'EditIcon'}
+            icon={focusedField === 'email' ? 'CloseIcon' : 'EditIcon'}
           />
         </div>
         <div className='pb-6'>
@@ -55,12 +63,14 @@ export const ProfileUI: FC<ProfileUIProps> = ({
             type={'password'}
             placeholder={'Пароль'}
             onChange={handleInputChange}
+            onFocus={() => handleInputFocus('password')}
+            onBlur={handleInputBlur}
             value={formValue.password}
             name={'password'}
             error={false}
             errorText={''}
             size={'default'}
-            icon={'EditIcon'}
+            icon={focusedField === 'password' ? 'CloseIcon' : 'EditIcon'}
           />
         </div>
         {isFormChanged && (
@@ -80,7 +90,12 @@ export const ProfileUI: FC<ProfileUIProps> = ({
         )}
         {updateUserError && (
           <p
-            className={`${commonStyles.error} pt-5 text text_type_main-default`}
+            className={clsx(
+              commonStyles.error,
+              'pt-5',
+              'text',
+              'text_type_main-default'
+            )}
           >
             {updateUserError}
           </p>
