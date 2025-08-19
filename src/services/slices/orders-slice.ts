@@ -15,7 +15,7 @@ type TOrdersState = {
   error: string | undefined;
 } & TOrdersData;
 
-const initialState: TOrdersState = {
+export const initialState: TOrdersState = {
   orders: [],
   total: 0,
   totalToday: 0,
@@ -35,6 +35,7 @@ export const ordersSlice = createSlice({
       })
       .addCase(fetchFeed.fulfilled, (state, action) => {
         state.loading = false;
+        state.error = undefined;
         state.orders = action.payload.orders;
         state.total = action.payload.total;
         state.totalToday = action.payload.totalToday;

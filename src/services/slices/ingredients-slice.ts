@@ -16,7 +16,7 @@ export const fetchIngredients = createAsyncThunk<TIngredient[], undefined>(
   }
 );
 
-const initialState: TIngredientsState = {
+export const initialState: TIngredientsState = {
   collection: [],
   loading: false,
   error: undefined
